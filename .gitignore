@@ -1,0 +1,6 @@
+# OS Junk files
+*.DS_Store
+**/.idea
+
+# Packages
+**/node_modules
