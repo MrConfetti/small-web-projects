@@ -11,3 +11,8 @@ services:
       - '80:80'
     environment:
       - NODE_ENV=development
+  backend:
+    container_name: backend
+    build: ./server
+    ports: 
+      - '8080:8080'

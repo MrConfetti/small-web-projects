@@ -1,31 +1,19 @@
 package main
 
 import (
-	"fmt"
-	"html/template"
-	"net/http"
-	"time"
+	"github.com/gin-gonic/gin"
+
+	"learning-go/main/controllers"
+	"learning-go/main/models"
 )
 
-type Welcome struct {
-	Name string
-	Time string
-}
-
 func main() {
-	welcome := Welcome{"Anonim", time.Now().Format(time.Stamp)}
+	r := gin.Default()
 
-	templates := template.Must(template.ParseFiles("../frontend/index.html"))
+	models.ConnectDatabase()
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if name := r.FormValue("name"); name != "" {
-			welcome.Name = name
-		}
+	r.GET("/books", controllers.FindBooks)
+	r.POST("/books", controllers.CreateBook)
 
-		if err := templates.ExecuteTemplate(w, "index.html", welcome); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-		}
-	})
-	fmt.Println("Listening")
-	fmt.Println(http.ListenAndServe(":8080", nil))
+	r.Run()
 }
