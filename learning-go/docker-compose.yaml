@@ -1,9 +1,14 @@
 version: '3.7'
 
+networks: 
+  bridge-network:
+    driver: bridge
 services:
   frontend:
     container_name: frontend
     build: ./frontend
+    networks: 
+      - bridge-network
     volumes:
       - '.:/app'
       - '/app/node_modules'
@@ -11,8 +16,14 @@ services:
       - '80:80'
     environment:
       - NODE_ENV=development
+    links: 
+      - backend
+    restart: always
   backend:
     container_name: backend
     build: ./server
+    networks: 
+      - bridge-network
     ports: 
       - '8080:8080'
+    restart: always
