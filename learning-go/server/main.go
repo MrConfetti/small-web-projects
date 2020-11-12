@@ -21,8 +21,8 @@ func main() {
 
 	r.Use(cors())
 
-	r.GET("/books", controllers.FindBooks)
-	r.POST("/books", controllers.CreateBook)
+	r.GET("api/books", controllers.FindBooks)
+	r.POST("api/books", controllers.CreateBook)
 
 	r.Run(":8080")
 }

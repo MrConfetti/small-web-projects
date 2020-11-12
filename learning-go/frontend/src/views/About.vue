@@ -13,7 +13,7 @@ export default {
   methods: {
     callApi() {
       axios
-      .get('http://localhost:8080/books')
+      .get('/api/books')
       .then(response => {
         console.log(response)
       })
