@@ -27,3 +27,11 @@ services:
     ports: 
       - '8080:8080'
     restart: always
+  load-balancer:
+    container_name: load-balancer
+    build: load-balancer/
+    ports:
+      - '5000:5000'
+    restart: always
+    networks:
+      - bridge-network
