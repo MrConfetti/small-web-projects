@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <p @click="callApi">Click me!</p>
+    <p class="text-purple-500" @click="callApi">Click me!</p>
   </div>
 </template>
 
