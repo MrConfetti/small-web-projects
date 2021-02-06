@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <p class="text-purple-500" @click="callApi">Click me!</p>
+    <p @click="callApi">Click me!</p>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   methods: {
     callApi() {
       axios
-      .get('/api/books')
+      .get('/books')
       .then(response => {
         console.log(response)
       })

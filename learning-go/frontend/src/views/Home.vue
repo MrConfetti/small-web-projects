@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home-page">
+    <Navbar />
+    <div id="hero"></div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Navbar from '@/components/Navbar.vue'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Navbar
   }
 }
 </script>
+
+<style scoped>
+.home-page {
+  height: 100vh;
+  background-image: url("~@/assets/hero_wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+
