@@ -39,8 +39,8 @@ body {
   font-weight: bold;
   transition: color 0.5s;
   position: relative;
-  margin-right: 4%;
   right: 3px;
+  background-color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
